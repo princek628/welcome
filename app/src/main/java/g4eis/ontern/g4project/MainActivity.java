@@ -32,7 +32,7 @@ import static g4eis.ontern.g4project.R.layout.activity_main;
 public class MainActivity extends AppCompatActivity {
 
     EditText etUId, etPwd;
-    Button btnNewUsr, btnLogin, btnForgot;
+    Button btnLogin;
     SharedPreferences sharedpreferences;
     private static final String MyPREFERENCES = "MyPrefs";
     private String oauth1;
@@ -45,94 +45,15 @@ public class MainActivity extends AppCompatActivity {
         etUId = (EditText) findViewById(R.id.etid);
         etPwd = (EditText) findViewById(R.id.etPwd);
         btnLogin = (Button) findViewById(R.id.btnLogin);
-        btnNewUsr = (Button) findViewById(R.id.btnNewUsr);
-        btnForgot = (Button) findViewById(R.id.btnForgot);
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         mProgress = new ProgressDialog(this);
         mProgress.setTitle("Logging you in...");
         mProgress.setMessage("Please wait...");
         mProgress.setCancelable(false);
         mProgress.setIndeterminate(true);
-        m2 = new ProgressDialog(this);
-        m2.setTitle("Registering you ...");
-        m2.setMessage("Please wait...");
-        m2.setCancelable(false);
-        m2.setIndeterminate(true);
-
 
         //sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         //oauth1=sharedpreferences.getString("oauth_login","null");
-        //For New User Registration
-        btnNewUsr.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View view) {
-
-                //Dialog Box for registration
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this,R.style.InvitationDialog);
-                final EditText input = new EditText(MainActivity.this);      //Text Box for email input
-                LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT,
-                        LinearLayout.LayoutParams.MATCH_PARENT);
-                input.setLayoutParams(lp);
-                builder.setView(input);
-                builder.setTitle("New User Registration");
-                builder.setCancelable(false);
-                getOauth2();
-                builder.setMessage("Enter Your e-mail to recieve password");
-                builder.setPositiveButton("Send Password", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                if(!input.getText().toString().equals("")) {        //Checking for empty Input
-                                    getPwd(input.getText().toString());  //method call for making password request
-                                }
-                                else{
-                                    Snackbar snackbar = Snackbar.make(view, "Empty e-mail field, Please fill and try again...",
-                                            Snackbar.LENGTH_LONG);
-                                    snackbar.show();
-                                }
-                            }
-                        }
-                );
-                builder.setNegativeButton("Cancel", null);
-                builder.show();
-
-            }
-        });
-
-        // method for Forgot password
-        btnForgot.setOnClickListener(new View.OnClickListener() {       //Method for forgot password
-            @Override
-            public void onClick(final View view) {
-                //Dialog box to get email from user and send him his old password
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this, R.style.InvitationDialog);
-                final EditText input = new EditText(MainActivity.this);      //Text Box for email input
-                LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT,
-                        LinearLayout.LayoutParams.MATCH_PARENT);
-                lp.setMargins(5,5,5,5);
-                input.setLayoutParams(lp);
-                builder.setView(input);
-                builder.setTitle("Recover Your Password");
-                builder.setCancelable(false);
-                Snackbar.make(view, "Forgot Password will be available soon...",
-                        Snackbar.LENGTH_LONG).show();
-                builder.setMessage("Enter your registered e-mail id");
-                builder.setPositiveButton("Send Password", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                if(!input.getText().toString().equals("")) {        //Checking for empty Input
-                                    //getPwd(input.getText().toString());  //method call for making password request
-                                }
-                                else{
-                                    Snackbar snackbar = Snackbar.make(view, "Empty e-mail field, Please fill and try again...",
-                                            Snackbar.LENGTH_LONG);
-                                    snackbar.show();
-                                }
-                            }
-                        }
-                );
-                builder.setNegativeButton("Cancel", null);
-                builder.show();
-            }
-        });
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,7 +61,16 @@ public class MainActivity extends AppCompatActivity {
                 String uid=etUId.getText().toString();
                 String pwd=etPwd.getText().toString();
                 if(!pwd.equals("")&&!uid.equals("")){
-                    loginUser(uid,pwd);
+                    if(uid.equals("admin") && pwd.equals("admin"))
+                    {
+                        SharedPreferences.Editor editor = sharedpreferences.edit();
+                        editor.putBoolean("login",true);
+                        editor.commit();
+                        Toast.makeText(MainActivity.this, "Login Successful...", Toast.LENGTH_SHORT).show();
+                        Intent chatIntent=new Intent(MainActivity.this,Main2Activity.class);
+                        startActivity(chatIntent);
+                        finish();
+                    }
                 }
                 else{
                     Snackbar snackbar = Snackbar
@@ -150,189 +80,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-    }
-
-    //method for login request to server and checking server response
-    private void loginUser( final String email, final String password){
-
-        mProgress.show();
-        RequestQueue queue = Volley.newRequestQueue(MainActivity.this);  // this = context
-        String url = "http://tcsapp.quicfind.com/oauth/access_token";
-        StringRequest postRequest = new StringRequest(Request.Method.POST, url,
-                new Response.Listener<String>()
-                {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jobj = new JSONObject(response);
-                            if(jobj.length()==0)
-                            {
-                                Snackbar.make(findViewById(R.id.mainLayout), "Empty response from Server...", Snackbar.LENGTH_LONG).show();
-                                return;
-                            }
-                            String rslt=jobj.getString("access_token").toString();
-                            String token=jobj.getString("token_type").toString();
-                            SharedPreferences.Editor editor = sharedpreferences.edit();
-                            if(!rslt.equals(null)&&token.equals("Bearer"))
-                            {
-                                editor.putString("oauth",rslt);
-                                editor.putString("uid",email);
-                                editor.putString("pwd",password);
-                                //editor.putString("token",rslt);
-                                editor.putBoolean("login",true);
-                                editor.commit();
-                                Toast.makeText(MainActivity.this, "Login Successful...", Toast.LENGTH_SHORT).show();
-                                //Snackbar.make(findViewById(R.id.dashLayout), "Login Successful...", Snackbar.LENGTH_LONG).show();
-                                Intent chatIntent=new Intent(MainActivity.this,Main2Activity.class);
-                                //chatIntent.putExtra("userid",email);
-                                startActivity(chatIntent);
-                                finish();
-                            }
-                            else {
-                                mProgress.dismiss();
-                                Snackbar.make(findViewById(R.id.mainLayout), "Wrong Credentials entered!! Try Again...", Snackbar.LENGTH_LONG).show();
-                            }
-                        }catch (Exception e){
-                            System.out.println(e.getMessage().toString());
-                            //Toast.makeText(MainActivity.this,e.getMessage().toString(),Toast.LENGTH_LONG);
-                            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
-
-                        }
-                    }
-                },
-                new Response.ErrorListener()
-                {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        mProgress.dismiss();
-                        Snackbar.make(findViewById(R.id.mainLayout), "Wrong Credentials entered or Server too Busy!! Try Again Later...", Snackbar.LENGTH_LONG).show();
-
-                    }
-                }
-        ) {
-            @Override
-            protected Map<String, String> getParams()
-            {
-                //params to login url
-                Map<String, String>  params = new HashMap<String, String>();
-                params.put("password",password );
-                params.put("grant_type","password");
-                params.put("client_id","0");
-                params.put("client_secret","public_secret");
-                params.put("username",email);
-                return params;
-            }
-        };
-        queue.add(postRequest);
-    }
-
-    //method for password request to server for 1st time users
-    private void getPwd( final String email){
-        m2.show();
-        RequestQueue queue = Volley.newRequestQueue(MainActivity.this);  // this = context
-        String url = "http://tcsapp.quicfind.com/users/register";
-        StringRequest postRequest = new StringRequest(Request.Method.POST, url,
-                new Response.Listener<String>()
-                {
-                    @Override
-                    public void onResponse(String response) {
-                        try
-                        {
-                            JSONObject jobj = new JSONObject(response);  //Response string to JSON
-                            String rslt=jobj.getString("error").toString(); //extract response value from JSON
-                            if(rslt.equals(""))
-                            {
-                                m2.dismiss();
-                                Toast.makeText(MainActivity.this, "Registration Successful...", Toast.LENGTH_SHORT).show();
-                                Snackbar.make(findViewById(R.id.mainLayout), "Registration successful!!!Login with password recieved on your " +
-                                        "e-mail", Snackbar.LENGTH_INDEFINITE).show();
-                            }
-                            else{
-                                m2.dismiss();
-                                Snackbar.make(findViewById(R.id.mainLayout), "Failed to Register!! Please Try Again...", Snackbar.LENGTH_LONG).show();
-                            }
-                        }catch (Exception e){
-                            System.out.println(e.getMessage().toString());
-                        }
-                    }
-                },
-                new Response.ErrorListener()
-                {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        m2.dismiss();
-                        //Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
-
-
-                    }
-                }
-        ) {
-            @Override
-            //params to for the url for post request
-            protected Map<String, String> getParams()
-            {
-                Map<String, String>  params = new HashMap<String, String>();
-                params.put("email",email);
-                params.put("access_token",oauth1);
-                return params;
-            }
-        };
-        queue.add(postRequest);
-    }
-
-    private void getOauth2(){
-
-        RequestQueue queue = Volley.newRequestQueue(MainActivity.this);  // this = context
-        String url = "http://tcsapp.quicfind.com/oauth/access_token";
-        StringRequest postRequest = new StringRequest(Request.Method.POST, url,
-                new Response.Listener<String>()
-                {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jobj = new JSONObject(response);
-                            oauth1=jobj.getString("access_token");
-                            if(!oauth1.equals(""))
-                            {
-                                //Do Nothing..... Signifies recieved Oauth correctly
-                                SharedPreferences.Editor editor = sharedpreferences.edit();
-                                editor.putString("oauth_login",oauth1);
-                                editor.commit();
-                                //Toast.makeText(Splashscreen.this, "print"+oauth2, Toast.LENGTH_LONG).show();
-                            }
-                            else{
-                                Intent chatIntent=new Intent(getApplicationContext(),Splashscreen.class);
-                                startActivity(chatIntent);
-                                finish();
-                            }
-                        }catch (Exception e){
-                            System.out.println(e.getMessage().toString());
-                        }
-                    }
-                },
-                new Response.ErrorListener()
-                {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                        Toast.makeText(MainActivity.this, "oauth1 "+error.getMessage(), Toast.LENGTH_LONG).show();
-                    }
-                }
-        ) {
-            @Override
-            protected Map<String, String> getParams()
-            {
-                //params to login url
-                Map<String, String>  params = new HashMap<String, String>();
-                params.put("password","password" );
-                params.put("grant_type","password");
-                params.put("client_id","0");
-                params.put("client_secret","public_secret");
-                params.put("username","public@tcs.com");
-                return params;
-            }
-        };
-        queue.add(postRequest);
     }
 
 }

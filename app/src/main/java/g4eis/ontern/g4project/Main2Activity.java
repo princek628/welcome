@@ -132,6 +132,12 @@ public class Main2Activity extends AppCompatActivity
     }*/
     @Override
     public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Exit Confirmation");
         builder.setCancelable(false);
@@ -156,10 +162,6 @@ public class Main2Activity extends AppCompatActivity
 
         if (id == R.id.nav_home) {
             // Handle the variation actions
-        } else if (id == R.id.nav_Profile) {
-            startActivity(new Intent(Main2Activity.this, profile_fragment.class));
-            drawer.closeDrawers();
-
         } else if (id == R.id.nav_logout) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Logout Confirmation");

@@ -23,20 +23,21 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.famoussoft.libs.JSON.JSONArray;
+import com.famoussoft.libs.JSON.JSONException;
 import com.famoussoft.libs.JSON.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class Accounts extends AppCompatActivity implements SearchView.OnQueryTextListener{
+public class Accounts extends AppCompatActivity{
 
-    protected String oauth2,qry="";
-    private int total=0;
+    protected String qry="";
     public int id;
     JSONArray message=null;
     SharedPreferences sharedpreferences;
     public static final String MyPREFERENCES = "MyPrefs";
-    SearchView editSearch;
+    JSONArray jarray=new JSONArray();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,60 +48,19 @@ public class Accounts extends AppCompatActivity implements SearchView.OnQueryTex
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        editSearch = (SearchView) findViewById(R.id.search);
-        editSearch.setOnQueryTextListener(this);
-
-        sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
-        oauth2=sharedpreferences.getString("oauth","null");
+        //editSearch = (SearchView) findViewById(R.id.search);
+        //editSearch.setOnQueryTextListener(this);
         //Toast.makeText(Accounts.this, oauth2, Toast.LENGTH_LONG).show();
         downloadData();
     }
 
-    private void downloadData(){
-        RequestQueue queue2 = Volley.newRequestQueue(Accounts.this);  // this = context
-        String url = "http://tcsapp.quicfind.com/accounts";
-        //Toast.makeText(Accounts.this, "oauth2"+oauth2, Toast.LENGTH_LONG).show();
-        StringRequest postRequest = new StringRequest(Request.Method.POST, url,
-                new Response.Listener<String>()
-                {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jobj = new JSONObject(response);
-                            loadList(jobj);
-                        }catch (Exception e){
-                            System.out.println(e.getMessage().toString());
-                            Toast.makeText(Accounts.this, "catch "+e.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                },
-                new Response.ErrorListener()
-                {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        //Toast.makeText(Accounts.this, "volley error"+error.getMessage(), Toast.LENGTH_LONG).show();
-                    }
-                }
-        ) {
-            @Override
-            protected Map<String, String> getParams()
-            {
-                Map<String, String>  params = new HashMap<String, String>();
-                params.put("access_token",oauth2 );
-                params.put("query",qry);
-                return params;
-            }
-        };
-        queue2.add(postRequest);
-    }
 
-    private void loadList(JSONObject data) {
+    private void loadList() {
         // TODO Auto-generated method stub
         LinearLayout mainLayout = (LinearLayout) findViewById(R.id.accounts_form);
         mainLayout.removeAllViews();
         //int total=Integer.parseInt(data.getString("total").toString());
         //this.total=total;
-        JSONArray jarray=new JSONArray(data.getJSONArray("data").toString());
         message=jarray;
         for (int i=0; i<jarray.length(); i++) {
             JSONObject jobj=new JSONObject(jarray.getJSONObject(i).toString());
@@ -142,6 +102,55 @@ public class Accounts extends AppCompatActivity implements SearchView.OnQueryTex
         }
     }
 
+    private void downloadData()
+    {
+        JSONObject data = new JSONObject();
+        try {
+            data.put("id", "1");
+            data.put("name", "Johnson and Johnson");
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        JSONObject data1 = new JSONObject();
+        try {
+            data1.put("id", "2");
+            data1.put("name", "Motorola");
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        JSONObject data2 = new JSONObject();
+        try {
+            data2.put("id", "3");
+            data2.put("name", "JP Morgan Chase & Co");
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        JSONObject data3 = new JSONObject();
+        try {
+            data3.put("id", "4");
+            data3.put("name", "J.C. Penney Company");
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        JSONObject data4 = new JSONObject();
+        try {
+            data4.put("id", "5");
+            data4.put("name", "John Bean Technologies Corporation");
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        jarray.put(data);
+        jarray.put(data1);
+        jarray.put(data2);
+        jarray.put(data3);
+        jarray.put(data4);
+    }
+
     private void accountDetails(final int id){
         Intent chatIntent=new Intent(Accounts.this,AccDetails.class);
         String id1=Integer.toString(id);
@@ -149,22 +158,6 @@ public class Accounts extends AppCompatActivity implements SearchView.OnQueryTex
         startActivity(chatIntent);
     }
 
-    @Override
-    public boolean onQueryTextSubmit(String query) {
-        this.qry=query;
-        downloadData();
-        //Toast.makeText(Accounts.this,"Submit "+query,Toast.LENGTH_LONG).show();
-        return true;
-    }
-
-    @Override
-    public boolean onQueryTextChange(String newText) {
-        this.qry = newText;
-        downloadData();
-        //adapter.filter(text);
-        //Toast.makeText(Accounts.this,"Change "+newText,Toast.LENGTH_LONG).show();
-        return false;
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

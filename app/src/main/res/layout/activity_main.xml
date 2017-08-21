@@ -109,32 +109,8 @@
                 android:layout_marginRight="20dp"
                 android:height="10dp" />
 
-            <Button
-                android:id="@+id/btnNewUsr"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="New User?"
-                android:textAllCaps="false"
-                android:textColor="@android:color/white"
-                android:background="@drawable/round"
-                android:minHeight="40dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:layout_marginRight="20dp" />
-
         </LinearLayout>
-            <Button
-                android:id="@+id/btnForgot"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:textAllCaps="false"
-                android:text="Forgot Password?"
-                android:layout_gravity="center"
-                android:minHeight="20dp"
-                android:elevation="0dp"
-                android:textColor="@color/colorPrimary"/>
+
              </LinearLayout>
             </LinearLayout>
 
