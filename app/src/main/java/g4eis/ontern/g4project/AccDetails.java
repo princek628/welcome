@@ -131,7 +131,7 @@ public class AccDetails extends AppCompatActivity {
 
     private void getData(String acc_id){
         Integer z=new Integer(acc_id);
-        JSONObject jobj=new JSONObject(jarray.getJSONObject(z).toString());
+        JSONObject jobj=new JSONObject(jarray.getJSONObject(z-1).toString());
 
         String accnm=jobj.getString("name").toString();
         acc_name.setGravity(Gravity.CENTER);

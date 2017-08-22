@@ -52,6 +52,7 @@ public class Accounts extends AppCompatActivity{
         //editSearch.setOnQueryTextListener(this);
         //Toast.makeText(Accounts.this, oauth2, Toast.LENGTH_LONG).show();
         downloadData();
+        loadList();
     }
 
 
