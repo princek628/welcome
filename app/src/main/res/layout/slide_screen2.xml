@@ -22,7 +22,7 @@
             android:textStyle="bold" />
         <ImageView
             android:layout_width="300dp"
-            android:scaleX="1.2"
+            android:scaleX="1.35"
 
 
             android:layout_height="250dp"

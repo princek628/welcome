@@ -7,19 +7,19 @@
     <!--Following code written by piyush Raja-->
     <color name="viewBg">#f1f5f8</color>
     <!-- Screens background color-->
-    <color name="bg_slider_screen1">#2196f3</color>
-    <color name="bg_slider_screen2">#4caf50</color>
-    <color name="bg_slider_screen3"> #f44336</color>
+    <color name="bg_slider_screen1">#203d8c</color>
+    <color name="bg_slider_screen2">#203d8c</color>
+    <color name="bg_slider_screen3"> #203d8c</color>
     <!-- dots inactive colors -->
-    <color name="dot_inactive_screen1">#4a148c</color>
-    <color name="dot_inactive_screen2">#1b5e20</color>
-    <color name="dot_inactive_screen3">#b71c1c</color>
+    <color name="dot_inactive_screen1">#0e1e49</color>
+    <color name="dot_inactive_screen2">#0e1e49</color>
+    <color name="dot_inactive_screen3">#0e1e49</color>
     <!-- dots active colors -->
-    <color name="dot_active_screen1">#90caf9</color>
-    <color name="dot_active_screen2">#a5d6a7</color>
-    <color name="dot_active_screen3">#ef9a9a</color>
-    <color name="primary_material_light">#ff9800</color>
-    <color name="primary_dark_material_light">#f57c00</color>
+    <color name="dot_active_screen1">#4b6ecc</color>
+    <color name="dot_active_screen2">#4b6ecc</color>
+    <color name="dot_active_screen3">#4b6ecc</color>
+    <color name="primary_material_light">#e91e63</color>
+    <color name="primary_dark_material_light">#c2185b</color>
     <color name="primary_material_dark">#009688</color>
     <color name="primary_dark_material_dark">#00796b</color>
     <array name="array_dot_active">

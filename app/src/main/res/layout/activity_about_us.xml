@@ -66,7 +66,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -76,16 +76,18 @@
                         android:id="@+id/profile_image0"
                         android:layout_width="96dp"
                         android:layout_height="match_parent"
-                        android:src="@drawable/ic_person_black_24dp"
+                        android:src="@drawable/prof"
                         app:civ_border_width="2dp"
                         app:civ_border_color="#FF000000"
+                        />
                         />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif"
+                        android:fontFamily="sans-serif-condensed"
                         android:text="Binoy Pramanik\n\nProject Mentor,\nTCS Kolkata"
                         android:textSize="25dp"
+                        android:textColor="@android:color/black"
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="2dp"
                         android:layout_gravity="top" />
@@ -117,16 +119,18 @@
                     android:id="@+id/profile_image2"
                     android:layout_width="96dp"
                     android:layout_height="match_parent"
-                    android:src="@drawable/ic_person_black_24dp"
+                    android:src="@drawable/prince"
                     app:civ_border_width="2dp"
                     app:civ_border_color="#FF000000"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="Prince Kumar\n\n4th year, CSE\nTechno India Saltlake"
                     android:textSize="25dp"
+                    android:textColor="@android:color/black"
+
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="2dp"
                     android:layout_gravity="top" />
@@ -159,17 +163,19 @@
                         <de.hdodenhof.circleimageview.CircleImageView
                             android:id="@+id/profile_image3"
                             android:layout_width="96dp"
+
                             android:layout_height="match_parent"
-                            android:src="@drawable/ic_person_black_24dp"
+                            android:src="@drawable/piyush"
                             app:civ_border_width="2dp"
                             app:civ_border_color="#FF000000"
                             />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif"
+                            android:fontFamily="sans-serif-condensed"
                             android:text="Piyush Raja\n\n4th year, CSE\nTechno India Saltlake"
                             android:textSize="25dp"
+                            android:textColor="@android:color/black"
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="2dp"
                             android:layout_gravity="top" />
@@ -202,16 +208,17 @@
                             android:id="@+id/profile_image4"
                             android:layout_width="96dp"
                             android:layout_height="match_parent"
-                            android:src="@drawable/ic_person_black_24dp"
+                            android:src="@drawable/debayan"
                             app:civ_border_width="2dp"
                             app:civ_border_color="#FF000000"
                             />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif"
+                            android:fontFamily="sans-serif-condensed"
                             android:text="Debayan\n\n4th year, CSE\nTechno India, Saltlake"
                             android:textSize="25dp"
+                            android:textColor="@android:color/black"
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="2dp"
                             android:layout_gravity="top" />
@@ -244,7 +251,7 @@
                             android:id="@+id/profile_image"
                             android:layout_width="96dp"
                             android:layout_height="match_parent"
-                            android:src="@drawable/ic_person_black_24dp"
+                            android:src="@drawable/shubhanil"
                             app:civ_border_width="2dp"
                             app:civ_border_color="#FF000000"
                             />
@@ -254,6 +261,7 @@
                             android:fontFamily="sans-serif"
                             android:text="Shubhanil Bag\n\n4th year, CSE\nNSEC"
                             android:textSize="25dp"
+                            android:textColor="@android:color/black"
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="2dp"
                             android:layout_gravity="top" />
@@ -287,16 +295,17 @@
                             android:id="@+id/profile_image5"
                             android:layout_width="96dp"
                             android:layout_height="match_parent"
-                            android:src="@drawable/ic_person_black_24dp"
+                            android:src="@drawable/jayanta"
                             app:civ_border_width="2dp"
                             app:civ_border_color="#FF000000"
                             />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif"
+                            android:fontFamily="sans-serif-condensed"
                             android:text="Jayanta Chowdhury\n\n4th year, ECE\nNSEC"
                             android:textSize="25dp"
+                            android:textColor="@android:color/black"
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="2dp"
                             android:layout_gravity="top" />

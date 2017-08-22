@@ -27,17 +27,17 @@
             android:name=".Main2Activity"
             android:label="Home"
             android:theme="@style/UserTheme">
-
-        </activity>
-        <activity
-            android:name=".Splashscreen"
-            android:theme="@style/AppTheme.NoActionBar" >
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".Splashscreen"
+            android:theme="@style/AppTheme.NoActionBar" >
+
+
        </activity>
         <activity
             android:name=".Campus"
@@ -61,16 +61,9 @@
             android:label="@string/title_dos_donts"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <activity android:name=".Profile_edit"
-            android:label="Edit Password"/>
-        <activity
-            android:name=".profile_fragment"
-            android:theme="@style/AppTheme.NoActionBar" >
-
-       </activity>
         <activity android:name=".Feedback" />
         <activity android:name=".About_us"
-            android:theme="@style/Theme.UserTheme.DayNight">
+            android:theme="@style/AppTheme.NoActionBar">
        </activity>
         <activity android:name=".faq"/>
 

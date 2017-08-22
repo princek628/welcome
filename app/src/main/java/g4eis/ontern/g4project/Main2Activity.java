@@ -183,11 +183,7 @@ public class Main2Activity extends AppCompatActivity
             builder.show();
 
 
-        }  else if (id == R.id.nav_Feedback) {
-            startActivity(new Intent(Main2Activity.this, Feedback.class));
-            drawer.closeDrawers();
-
-        } else if (id == R.id.nav_about_us) {
+        }   else if (id == R.id.nav_about_us) {
             startActivity(new Intent(Main2Activity.this, About_us.class));
             drawer.closeDrawers();
 
