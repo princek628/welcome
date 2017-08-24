@@ -21,7 +21,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import g4eis.ontern.g4project.R;
-import g4eis.ontern.g4project.ViewPagerActivity.TabWithIconActivity;
+
 
 public class Main2Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -78,7 +78,7 @@ public class Main2Activity extends AppCompatActivity
         card3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Main2Activity.this, TabWithIconActivity.class);
+                Intent intent = new Intent(Main2Activity.this, dos_donts.class);
                 startActivity(intent);
 
             }

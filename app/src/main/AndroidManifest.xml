@@ -5,8 +5,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL" />
 
     <application
         android:allowBackup="true"
@@ -21,8 +21,7 @@
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".WelcomeActivity"
-            android:theme="@style/AppTheme.NoActionBar" >
-       </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Main2Activity"
             android:label="Home"
@@ -35,15 +34,11 @@
         </activity>
         <activity
             android:name=".Splashscreen"
-            android:theme="@style/AppTheme.NoActionBar" >
-
-
-       </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Campus"
             android:label="Campus"
-           android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ImportantContacts"
             android:label="Important Contacts"
@@ -57,15 +52,14 @@
             android:label="AccDetails"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ViewPagerActivity.TabWithIconActivity"
+            android:name=".dos_donts"
             android:label="@string/title_dos_donts"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Feedback" />
-        <activity android:name=".About_us"
-            android:theme="@style/AppTheme.NoActionBar">
-       </activity>
-        <activity android:name=".faq"/>
+        <activity
+            android:name=".About_us"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".faq" />
 
     </application>
 
