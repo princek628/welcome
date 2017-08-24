@@ -19,7 +19,7 @@
     <string name="card_1">TCS ACHIVEMENTS WILL APPEAR HERE</string>
     <string name="card_2">Accounts</string>
     <string name="card_3">Do\'s and Don\'ts</string>
-    <string name="card_4">Important Contact Authorities</string>
+    <string name="card_4">Important\nContact\nAuthorities</string>
     <string name="card_5">Campus Overview</string>
     <string name="card_1a">Do You Know???</string>
     <string name="app_name1">Navigation Drawer</string>
@@ -157,7 +157,7 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="title_activity_navigation_test">NavigationTest</string>
-    <string name="dos" >
+    <string name="dos">
       Network within. Be it team or organization only network will help you there.
        \n\n\n Build Knowledge. It takes you places.
        \n\n\nUnderstand the organization and its structure.
@@ -168,7 +168,7 @@
    \n\n\nUnderstand what can be done and what cannot.
     \n\n\nWork so hard that there will be dependency on you in your project, that is how you earn respect.
     \n\n\nAccept your mistake if any."
-    </string>s
+    </string>
     <string name="dont">
     DO NOT take pen drives, CDs, laptops, cameras or any other mass storage device to the office. You can keep them in your room.
 
@@ -177,14 +177,15 @@
 \n\n\nDO NOT take photos with your phone inside the office. Taking photos is strictly prohibited.
         \n\n\nDO NOT be late for any session or presentation. Some leads are very strict and may not allow you to attend that session.
         \n\n\nFor guys who smoke, use the breaks and go to the proper area where smoking is allowed.
-        \n\n\nDO NOT use your phone frequently because many ILP centers don’t allow the usage of phones inside the office. If it is allowed in small amounts, make sure you maintain your phone etiquette by using the breaks to make a call,  moving to a corner and speaking in a low tone. Other than that, calling up your friend to come to class, sending an SMS in class, playing games and checking your Facebook  is totally allowed, provided that you don’t get caught! 🙂
-        \n\n\nDO NOT chew gums and throw them here and there. It’ll be bad if you are caught chewing gums 😦 If you really have to chew something, do it at your own risk! 🙂
-        \n\n\nDO NOT take food items to office. In Trivandrum, sometimes, chocolates and biscuits weren’t even allowed. But, if you can take them through, you can eat them in the small breaks. Or, you can eat in class! Again, don’t get caught! 😀
+        \n\n\nDO NOT use your phone frequently because many ILP centers don’t allow the usage of phones inside the office. If it is allowed in small amounts, make sure you maintain your phone etiquette by using the breaks to make a call,  moving to a corner and speaking in a low tone. Other than that, calling up your friend to come to class, sending an SMS in class, playing games and checking your Facebook  is totally allowed, provided that you don’t get caught! 
+        \n\n\nDO NOT chew gums and throw them here and there. It’ll be bad if you are caught chewing gums  If you really have to chew something, do it at your own risk! 
+        \n\n\nDO NOT take food items to office. In Trivandrum, sometimes, chocolates and biscuits weren’t even allowed. But, if you can take them through, you can eat them in the small breaks. Or, you can eat in class! Again, don’t get caught! 
         \n\n\nDO NOT waste your coffee breaks and big break. You get them after long hours. Freshen yourself up in these 15 or 30 minutes!
-        \n\n\nDO NOT wander off in the middle of lab sessions. If you need to drink water (coz guys don’t usually carry water) or wash your face (coz girls usually do that), ask your lead or let the person beside you know that. That way, if you are not in your seat, people will know that you didn’t ditch that session. I remember running off 5-10 minutes before the end of lab session, so that I don’t get into a long queue during the big break!  Of course, don’t do this if your lead is around! 😀
+        \n\n\nDO NOT wander off in the middle of lab sessions. If you need to drink water (coz guys don’t usually carry water) or wash your face (coz girls usually do that), ask your lead or let the person beside you know that. That way, if you are not in your seat, people will know that you didn’t ditch that session. I remember running off 5-10 minutes before the end of lab session, so that I don’t get into a long queue during the big break!  Of course, don’t do this if your lead is around! 
         \n\n\nDO NOT dress improperly throughout the week. Read my post on grooming at- BASIC GROOMING AND ETIQUETTE.
         \n\n\nDO NOT use offensive language, direct/indirect insults, swearing and criticism. It will be bad for your rating and people will give bad feedback about you and know you as someone having an attitude problem. If you’re heard by any lead or supervisor, it can cost you your job. So, keep it all outside the office! 🙂 Discussing about how your lead is teaching JAVA is totally normal but, keep it low! You have feedback sessions for that!
         \n\n\nDO NOT indulge in any destructive activities like breaking  and damaging things. That is the last thing TCS expects from you. Do not run about and behave like children. Remember, be in your very best behaviour, always! 🙂</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 
 
 </resources>
