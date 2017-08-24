@@ -174,7 +174,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif"
+                            android:fontFamily="sans-serif-condensed"
                             android:text="Shubhanil Bag\n\n4th year, CSE\nNSEC"
                             android:textSize="20dp"
                             android:gravity="center"
