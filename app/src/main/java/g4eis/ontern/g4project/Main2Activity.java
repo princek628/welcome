@@ -23,6 +23,7 @@ import android.widget.Toast;
 import g4eis.ontern.g4project.R;
 
 
+
 public class Main2Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
