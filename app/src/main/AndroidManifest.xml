@@ -52,15 +52,13 @@
             android:label="AccDetails"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".dos_donts"
-            android:label="@string/title_dos_donts"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Feedback" />
-        <activity
             android:name=".About_us"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".faq" />
+        <activity android:name=".dos_donts"
+            android:theme="@style/AppTheme.NoActionBar">
 
+        </activity>
     </application>
 
 </manifest>
