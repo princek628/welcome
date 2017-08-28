@@ -71,6 +71,12 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(chatIntent);
                         finish();
                     }
+                    else{
+                        Snackbar snackbar = Snackbar
+                                .make(view, "Wrong Username/Password, Try Again...", Snackbar.LENGTH_LONG);
+
+                        snackbar.show();
+                    }
                 }
                 else{
                     Snackbar snackbar = Snackbar
